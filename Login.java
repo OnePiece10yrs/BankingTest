@@ -13,8 +13,8 @@ public class Login {
 		driver.get(loginUrl);
 		
 		//login & password
-		driver.findElement(By.name("uid")).sendKeys("mngr35982");
-		driver.findElement(By.name("password")).sendKeys("EjunetA");
+		driver.findElement(By.name("uid")).sendKeys("mylogin");
+		driver.findElement(By.name("password")).sendKeys("passwd");
 		driver.findElement(By.xpath("//input[@name='uid']")).submit();
 		
 		startTests();
