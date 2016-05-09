@@ -2,42 +2,69 @@ package BankingPkg;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 public class Login {
 
+	//@Parameters({"myLogin","myPasswd"})
 	public static void main(String[] args){
-		
+		/*
 		String loginUrl = driverUtil.demoUrl;
 		WebDriver driver = driverUtil.getDriver();
 		
 		driver.get(loginUrl);
 		
 		//login & password
-		driver.findElement(By.name("uid")).sendKeys("mylogin");
-		driver.findElement(By.name("password")).sendKeys("passwd");
+		
+		driver.findElement(By.name("uid")).sendKeys("mngr35982");
+		driver.findElement(By.name("password")).sendKeys("EjunetA");
 		driver.findElement(By.xpath("//input[@name='uid']")).submit();
+		*/
 		
 		startTests();
 		
 			
 		System.exit(0);
 	}
+
+@Test	
+@Parameters({"myLogin","myPasswd"})	
+public void verLogin(String myLogin, String myPasswd){
 	
+	String loginUrl = driverUtil.demoUrl;
+	WebDriver driver = driverUtil.getDriver();
+	
+	driver.get(loginUrl);
+	
+	driver.findElement(By.name("uid")).sendKeys(myLogin);
+	driver.findElement(By.name("password")).sendKeys(myPasswd);
+	driver.findElement(By.xpath("//input[@name='uid']")).submit();
+	
+	startTests();
+}
+
+@Parameters({"item","valKey"})	
 	static private void startTests(){
 		
 		WebDriver driver = driverUtil.getDriver();
 		
-		//new account
-				
+		//new customer			
 		driver.findElement(By.linkText("New Customer")).click();
 		NewCustomer nc = new NewCustomer();
 		nc.AddCusomer();	
 		
 		//new account
-	
 		driver.findElement(By.linkText("New Account")).click();
 		NewAccount na = new NewAccount();
 		na.newAccount();
+	
+		//edit account
+		/*
+		driver.findElement(By.linkText("Edit Account"));
+		EditAccount ea = new EditAccount();
+		ea.editAccount(item, valKey);
+		*/
 		
 		//customize statement
 		driver.findElement(By.linkText("Customised Statement")).click();
