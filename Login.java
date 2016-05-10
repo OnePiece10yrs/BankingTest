@@ -2,6 +2,9 @@ package BankingPkg;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -27,6 +30,12 @@ public class Login {
 			
 		System.exit(0);
 	}
+
+@BeforeTest
+@Parameters("browser")
+public void setBrowser(String browser){
+	driverUtil.setBrowser(browser);
+}
 
 @Test	
 @Parameters({"myLogin","myPasswd"})	
@@ -77,4 +86,16 @@ public void verLogin(String myLogin, String myPasswd){
 		balance.getBalance();
 		
 	}
+
+@AfterTest
+	public void cleanUp(){
+		WebDriver driver = driverUtil.getDriver();
+		driver.quit();
+	}
+
+@AfterSuite
+	public void testsEnd(){
+		System.exit(0);
+	}
+
 }

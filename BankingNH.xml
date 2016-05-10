@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Banking Test">
+<test name="chromTest">
+<parameter name="browser" value="Chrome" />
+<parameter name="myLogin" value="enter_login" />
+<parameter name="myPasswd" value="enter_pw" />
+	<classes>
+	<class name="BankingPkg.Login" />
+	</classes>
+
+</test>
+<test name="ffTest">
+<parameter name="browser" value="firefox" />
+<parameter name="myLogin" value="enter_login" />
+<parameter name="myPasswd" value="enter_pw" />
+	<classes>
+	<class name="BankingPkg.Login" />
+	</classes>
+
+</test>
+</suite>

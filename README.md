@@ -1,4 +1,4 @@
-This is a test project for using Selenium WebDriver.
+This is a cross browser test project for using Selenium WebDriver, TestNG.
 
 Banking features for test automation:
 . Login
